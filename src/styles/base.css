@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,7 +35,7 @@
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   h1, h2, h3 {
-    @apply font-serif
+    @apply font-[Funnel_Display]
   }
   section,
   footer {
