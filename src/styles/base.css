@@ -36,7 +36,7 @@
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   h1, h2, h3 {
-    @apply font-(family-name:--font-funnel)
+    @apply font-(family-name:--font-funnel);
   }
   section,
   footer {
