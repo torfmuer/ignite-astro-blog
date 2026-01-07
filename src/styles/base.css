@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --font-funnel: "Funnel Display", sans-serif; 
-}
-
 @layer base {
   :root,
   html[data-theme="light"] {
@@ -39,7 +35,7 @@
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   h1, h2, h3 {
-    @apply font-funnel;
+    font-family: 'Funnel Display', sans-serif;
   }
   section,
   footer {
