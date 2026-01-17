@@ -35,6 +35,8 @@ Environmental limits force durability.
 
 When constraints are ignored, products become bloated. When they’re respected, products become focused.
 
+![](/BOTHmgreal.jpg)
+
 ## Test in the Real World
 
 Lab tests matter, but field use tells the truth.
