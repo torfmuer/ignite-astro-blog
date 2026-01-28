@@ -2,9 +2,9 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://learn.ignitepros.co", // replace this with your deployed domain
-  author: "Ignite Pros",
-  desc: "The place to learn about everything luxury appliances.",
-  title: "Ignite Pros",
+  author: "Ignite Pros Blog",
+  desc: "The place to learn about everything cleaning luxury appliances, BBQs, and commercial kitchens.",
+  title: "Ignite Pros Blog",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
