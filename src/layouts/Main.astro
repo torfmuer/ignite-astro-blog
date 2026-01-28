@@ -19,30 +19,45 @@ const { props } = Astro;
 
 <Breadcrumbs />
 <main id="main-content">
-  {
-    "titleTransition" in props ? (
-      <h1>
-        {props.pageTitle[0]}
-        <span transition:name={props.titleTransition}>
-          {props.pageTitle[1]}
-        </span>
-      </h1>
-    ) : (
-      <h1>{props.pageTitle}</h1>
-    )
-  }
-  <p>{props.pageDesc}</p>
-  <slot />
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      {
+        "titleTransition" in props ? (
+          <h1>
+            {props.pageTitle[0]}
+            <span transition:name={props.titleTransition}>
+              {props.pageTitle[1]}
+            </span>
+          </h1>
+        ) : (
+          <h1>{props.pageTitle}</h1>
+        )
+      }
+      {props.pageDesc && <p class="page-desc">{props.pageDesc}</p>}
+    </div>
+  </section>
+  <section class="page-body">
+    <slot />
+  </section>
 </main>
 
 <style>
   #main-content {
-    @apply mx-auto w-full max-w-3xl px-4 pb-4;
+    @apply mx-auto w-full max-w-6xl px-4 pb-8;
+  }
+  .page-hero {
+    @apply mt-6 rounded-3xl bg-gradient-to-br from-orange-500 via-orange-400 to-amber-300 text-skin-inverted shadow-[0_25px_60px_rgba(249,115,22,0.25)];
+  }
+  .page-hero-inner {
+    @apply px-6 py-10 sm:px-10 sm:py-12;
   }
   #main-content h1 {
-    @apply text-2xl font-semibold sm:text-3xl;
+    @apply text-3xl font-semibold leading-tight sm:text-4xl;
   }
-  #main-content p {
-    @apply mb-6 mt-2 italic;
+  .page-desc {
+    @apply mt-3 text-base text-white/85 sm:text-lg;
+  }
+  .page-body {
+    @apply mt-10;
   }
 </style>

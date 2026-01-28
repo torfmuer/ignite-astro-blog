@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -33,13 +33,14 @@
   body {
     @apply flex min-h-[100svh] flex-col bg-skin-fill text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
+    font-family: "Inter", sans-serif;
   }
   h1, h2, h3 {
     font-family: 'Funnel Display', sans-serif;
   }
   section,
   footer {
-    @apply mx-auto max-w-3xl px-4;
+    @apply mx-auto max-w-6xl px-4;
   }
   a {
     @apply outline-2 outline-offset-1 outline-skin-fill 
@@ -56,7 +57,7 @@
   .prose {
     @apply prose-headings:!mb-3 prose-headings:!text-skin-base 
     prose-h3:italic prose-p:!text-skin-base 
-    prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8
+    prose-a:!text-skin-base prose-a:!decoration-solid prose-a:underline-offset-8
     hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent
     prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
     prose-figcaption:!text-skin-base prose-figcaption:opacity-70

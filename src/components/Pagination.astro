@@ -20,7 +20,7 @@ const next = currentPage < totalPages ? "" : "disabled";
       <LinkButton
         disabled={prev === "disabled"}
         href={prevUrl}
-        className={`mr-4 select-none ${prev}`}
+        className={`pagination-btn mr-4 select-none ${prev}`}
         ariaLabel="Previous"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class={`${prev}-svg`}>
@@ -28,11 +28,13 @@ const next = currentPage < totalPages ? "" : "disabled";
         </svg>
         Prev
       </LinkButton>
-      {currentPage} / {totalPages}
+      <span class="pagination-count">
+        {currentPage} / {totalPages}
+      </span>
       <LinkButton
         disabled={next === "disabled"}
         href={nextUrl}
-        className={`ml-4 select-none ${next}`}
+        className={`pagination-btn ml-4 select-none ${next}`}
         ariaLabel="Next"
       >
         Next
@@ -46,7 +48,16 @@ const next = currentPage < totalPages ? "" : "disabled";
 
 <style>
   .pagination-wrapper {
-    @apply mb-8 mt-auto flex justify-center;
+    @apply mb-12 mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-skin-base/70;
+  }
+  .pagination-btn {
+    @apply inline-flex items-center gap-2 rounded-full border border-skin-line bg-skin-fill px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-skin-base/70 shadow-[0_12px_25px_rgba(15,23,42,0.08)] transition hover:border-skin-accent hover:text-skin-accent;
+  }
+  .pagination-btn svg {
+    @apply fill-skin-base;
+  }
+  .pagination-count {
+    @apply rounded-full border border-skin-line bg-skin-fill/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-skin-base/70;
   }
   .disabled {
     @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;

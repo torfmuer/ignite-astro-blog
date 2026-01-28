@@ -11,15 +11,17 @@ import LinkButton from "@components/LinkButton.astro";
 
   <main id="main-content">
     <div class="not-found-wrapper">
-      <h1 aria-label="404 Not Found">404</h1>
-      <span aria-hidden="true">¯\_(ツ)_/¯</span>
-      <p>Page Not Found</p>
-      <LinkButton
-        href="/"
-        className="my-6 text-lg underline decoration-dashed underline-offset-8"
-      >
-        Go back home
-      </LinkButton>
+      <div class="not-found-card">
+        <h1 aria-label="404 Not Found">404</h1>
+        <span aria-hidden="true">¯\_(ツ)_/¯</span>
+        <p>Page Not Found</p>
+        <LinkButton
+          href="/"
+          className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-[0_15px_35px_rgba(249,115,22,0.2)] transition hover:border-white/70 hover:bg-white/25"
+        >
+          Go back home
+        </LinkButton>
+      </div>
     </div>
   </main>
 
@@ -28,15 +30,18 @@ import LinkButton from "@components/LinkButton.astro";
 
 <style>
   #main-content {
-    @apply mx-auto flex max-w-3xl flex-1 items-center justify-center;
+    @apply mx-auto flex max-w-6xl flex-1 items-center justify-center px-4;
   }
   .not-found-wrapper {
-    @apply mb-14 flex flex-col items-center justify-center;
+    @apply mb-14 flex w-full flex-col items-center justify-center;
+  }
+  .not-found-card {
+    @apply flex w-full max-w-2xl flex-col items-center gap-3 rounded-3xl bg-gradient-to-br from-orange-500 via-orange-400 to-amber-300 px-6 py-12 text-skin-inverted shadow-[0_25px_60px_rgba(249,115,22,0.25)] sm:px-10;
   }
   .not-found-wrapper h1 {
-    @apply text-9xl font-bold text-skin-accent;
+    @apply text-8xl font-semibold sm:text-9xl;
   }
   .not-found-wrapper p {
-    @apply mt-4 text-2xl sm:text-3xl;
+    @apply text-xl text-white/85 sm:text-2xl;
   }
 </style>

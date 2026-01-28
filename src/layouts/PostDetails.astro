@@ -53,9 +53,9 @@ const layoutProps = {
     <div class="progress-bar h-1 w-0 bg-skin-accent" id="myBar"></div>
   </div> -->
 
-  <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
+  <div class="mx-auto flex w-full max-w-6xl justify-start px-2">
     <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
+      class="focus-outline mb-2 mt-8 flex items-center gap-2 rounded-full border border-skin-line bg-skin-fill px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-skin-base/70 shadow-[0_12px_25px_rgba(15,23,42,0.08)] transition hover:border-skin-accent hover:text-skin-accent"
       onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -66,14 +66,23 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime
-      pubDatetime={pubDatetime}
-      modDatetime={modDatetime}
-      size="lg"
-      className="my-2"
-    />
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+    <section class="post-hero">
+      <div class="post-hero-inner">
+        <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+        <p class="post-desc">{description}</p>
+        <Datetime
+          pubDatetime={pubDatetime}
+          modDatetime={modDatetime}
+          size="lg"
+          className="post-meta"
+        />
+      </div>
+    </section>
+    <article
+      id="article"
+      role="article"
+      class="prose mx-auto mt-10 max-w-3xl rounded-3xl bg-skin-fill/90 p-6 shadow-[0_20px_50px_rgba(15,23,42,0.08)] sm:p-10"
+    >
       <Content />
     </article>
 
@@ -86,7 +95,7 @@ const layoutProps = {
     >
       <button
         id="back-to-top"
-        class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
+        class="focus-outline inline-flex items-center gap-2 rounded-full border border-skin-line bg-skin-fill px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-skin-base/70 shadow-[0_12px_25px_rgba(15,23,42,0.08)] transition hover:border-skin-accent hover:text-skin-accent"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
           <path
@@ -104,10 +113,25 @@ const layoutProps = {
 
 <style>
   main {
-    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+    @apply mx-auto w-full max-w-6xl px-4 pb-12;
+  }
+  .post-hero {
+    @apply mt-6 rounded-3xl bg-gradient-to-br from-orange-500 via-orange-400 to-amber-300 text-skin-inverted shadow-[0_25px_60px_rgba(249,115,22,0.25)];
+  }
+  .post-hero-inner {
+    @apply px-6 py-10 sm:px-10 sm:py-12;
   }
   .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+    @apply text-3xl font-semibold leading-tight sm:text-4xl;
+  }
+  .post-desc {
+    @apply mt-3 text-base text-white/85 sm:text-lg;
+  }
+  .post-meta {
+    @apply mt-5 text-white/80;
+  }
+  .fill-skin-base {
+    @apply fill-white;
   }
 </style>
 

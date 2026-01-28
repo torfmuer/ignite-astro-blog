@@ -23,22 +23,23 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Welcome!</h1>
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+      <div class="hero-card">
+        <h1>Welcome!</h1>
+        <p>
+          Quick guides, seasonal checklists, and expert advice pulled straight
+          from the Ignite field team. We’ll add new pieces as our crews tackle
+          interesting jobs across Coeur d’Alene and Spokane.
+        </p>
+        {
+          // only display if at least one social link is enabled
+          socialCount > 0 && (
+            <div class="social-wrapper">
+              <div class="social-links">Social Links:</div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
     </section>
 
     <Hr />
@@ -48,7 +49,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         <>
           <section id="featured">
             <h2>Featured</h2>
-            <ul>
+            <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 min-[1024px]:grid-cols-3">
               {featuredPosts.map(({ data, slug }) => (
                 <Card
                   href={`/posts/${slug}/`}
@@ -67,7 +68,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       recentPosts.length > 0 && (
         <section id="recent-posts">
           <h2>Recent Posts</h2>
-          <ul>
+          <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 min-[1024px]:grid-cols-3">
             {recentPosts.map(
               ({ data, slug }, index) =>
                 index < 4 && (
@@ -84,7 +85,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     }
 
     <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
+      <LinkButton
+        href="/posts/"
+        className="inline-flex items-center gap-2 rounded-full border border-skin-line bg-skin-fill px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-skin-base/70 shadow-[0_15px_35px_rgba(15,23,42,0.08)] transition hover:border-skin-accent hover:text-skin-accent"
+      >
         All Posts
         <svg xmlns="http://www.w3.org/2000/svg"
           ><path
@@ -101,10 +105,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pb-6 pt-8;
+    @apply pb-6 pt-6;
+  }
+  .hero-card {
+    @apply rounded-3xl bg-gradient-to-br from-orange-500 via-orange-400 to-amber-300 px-6 py-10 text-skin-inverted shadow-[0_25px_60px_rgba(249,115,22,0.25)] sm:px-10 sm:py-14;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply mb-4 text-4xl font-semibold sm:text-5xl;
   }
   #hero .rss-link {
     @apply mb-6;
@@ -113,13 +120,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
   }
   #hero p {
-    @apply my-2;
+    @apply text-base text-white/85 sm:text-lg;
   }
   .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+    @apply mt-6 flex flex-col gap-2 sm:flex-row sm:items-center;
   }
   .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+    @apply whitespace-nowrap text-xs font-semibold uppercase tracking-[0.3em] text-white/70;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
@@ -129,9 +136,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   }
   #featured h2,
   #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
+    @apply text-2xl mb-5 font-semibold tracking-wide text-skin-base;
   }
   .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+    @apply my-10 text-center;
   }
 </style>

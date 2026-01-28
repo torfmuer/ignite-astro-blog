@@ -7,15 +7,11 @@ export interface Props {
 const { tag, size = "sm" } = Astro.props;
 ---
 
-<li
-  class={`inline-block ${
-    size === "sm" ? "my-1 underline-offset-4" : "my-3 mx-1 underline-offset-8"
-  }`}
->
+<li class={`inline-block ${size === "sm" ? "my-1" : "my-3 mx-1"}`}>
   <a
     href={`/tags/${tag}/`}
     transition:name={tag}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    class={`tag-pill ${size === "sm" ? "text-xs" : "text-sm"} group`}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -29,10 +25,10 @@ const { tag, size = "sm" } = Astro.props;
 </li>
 
 <style>
-  a {
-    @apply relative underline decoration-dashed hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
+  .tag-pill {
+    @apply relative inline-flex items-center gap-1 rounded-full border border-skin-line bg-skin-fill px-3 py-2 font-semibold uppercase tracking-[0.2em] text-skin-base/70 shadow-[0_10px_20px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5 hover:border-skin-accent hover:text-skin-accent focus-visible:p-2;
   }
-  a svg {
-    @apply -mr-5 h-6 w-6 scale-95 text-skin-base opacity-80 group-hover:fill-skin-accent;
+  .tag-pill svg {
+    @apply -ml-1 scale-95 text-skin-base opacity-70 group-hover:fill-skin-accent;
   }
 </style>

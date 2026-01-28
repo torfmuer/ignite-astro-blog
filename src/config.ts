@@ -1,7 +1,7 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
+  website: "https://learn.ignitepros.co", // replace this with your deployed domain
   author: "Ignite Pros",
   desc: "The place to learn about everything luxury appliances.",
   title: "Ignite Pros",
@@ -9,6 +9,12 @@ export const SITE: Site = {
   lightAndDarkMode: true,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+};
+
+// Update this to your primary (non-blog) website.
+export const MAIN_SITE = {
+  url: "https://ignitepros.co",
+  label: "Exit Blog",
 };
 
 export const LOCALE = {
