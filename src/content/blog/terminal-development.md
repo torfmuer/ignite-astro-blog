@@ -8,11 +8,7 @@ slug: how-do-i-develop-my-terminal-portfolio-website-with-react
 featured: false
 draft: false
 tags:
-  - JavaScript
-  - ReactJS
-  - ContextAPI
-  - Styled-Components
-  - TypeScript
+  - Barbeques
 description: How to keep pests out of your barbeque!
 ---
 ## Why grills attract pests
