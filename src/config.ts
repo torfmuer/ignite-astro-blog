@@ -38,13 +38,13 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Facebook",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.facebook.com/profile.php?id=100086927633606",
     linkTitle: `${SITE.title} on Facebook`,
     active: true,
   },
   {
     name: "Instagram",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.instagram.com/igniteclean/",
     linkTitle: `${SITE.title} on Instagram`,
     active: true,
   },
@@ -76,7 +76,7 @@ export const SOCIALS: SocialObjects = [
     name: "YouTube",
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.title} on YouTube`,
-    active: true,
+    active: false,
   },
   {
     name: "WhatsApp",
